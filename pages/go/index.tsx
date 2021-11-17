@@ -1,10 +1,12 @@
 import type { NextPage } from 'next'
 import Head from 'next/dist/shared/lib/head'
+import Link from 'next/link'
 import React from 'react'
 import Header from '../../components/Header'
 import Title from '../../components/Title'
 import * as links from "../../public/url_shortener.json"
 import style from "../../styles/Go.module.css"
+import QuickLink from './[link]'
 
 const QuickLinkHome: NextPage = () => {
   return (
@@ -26,10 +28,10 @@ const QuickLinkHome: NextPage = () => {
                         <tr key={key} className={style.tableRow}>
                             <td className={style.linkTitle}>{key}</td>
                             <td className={style.linkValue}>
-                                <a href={
-                                    // @ts-ignore - typescript doesn't like how the key is a string, and not a specific string
-                                    links[key]}>{links[key]}
-                                </a>
+                                <Link href={`/go/${key}`}>
+                                    { // @ts-ignore
+                                    links[key] }
+                                </Link>
                             </td>
                         </tr>
                     )

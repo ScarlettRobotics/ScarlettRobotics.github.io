@@ -6,34 +6,43 @@ import Title from '../../components/Title';
 import * as links from "../../public/url_shortener.json"
 import style from "../../styles/Go.module.css"
 
-const QuickLink: NextPage = () => {
-    const router = useRouter();
-
-    const targetName: string = router.query.link as string; 
-    // @ts-ignore
-    const target = targetName in links ? links[targetName] : null;
-
-    if(target != null) {
-        window.location = target;
-    }
+const QuickLink: NextPage = (props:any) => {
+    const target = props.target;
+    const targetName = props.targetNanme;
+    
+    if(typeof window != "undefined") window.location = target;
 
     return(
         <div className={style.centerContainer}>
             <Head>
-                <title>{target != null ? `Redirecting...` : `Scarlett Robotics | Quick Links`}</title>
+                <title>Redirecting...</title>
             </Head>
+
             <Title />
-            <h1>{target != null ? targetName : "Invalid Link"}</h1>
-            {
-                target != null ?
-                <>
-                    <p style={{margin: "0px"}}>Please Wait...</p>
-                    <p style={{margin: "0px"}}>If you are not redirected automatically, <a href={target}>click here</a>.</p>
-                </> :
-                <p>Go back to the <a href="./">list of links</a></p>
-            }
+            <h1>{targetName}</h1>
+            <p style={{margin: "0px"}}>Please Wait...</p>
+            <p style={{margin: "0px"}}>If you are not redirected automatically, <a href={target}>click here</a>.</p>
         </div>
     );
 }
 
 export default QuickLink;
+
+export async function getStaticProps(context:any) {
+    const targetName = context.params.link;
+    // @ts-ignore
+    const target = links[targetName];
+    return { props: { targetName: targetName, target: target } };
+  }
+
+export async function getStaticPaths() {
+    // @ts-ignore
+    const paths = Object.keys(links["default"]).map((key) => {
+      return { params: { link: key } };
+    });
+  
+    return {
+      paths,
+      fallback: false,
+    };
+  }
