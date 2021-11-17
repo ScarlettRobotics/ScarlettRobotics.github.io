@@ -1,49 +1,38 @@
-name: Deploy to Github Pages
+name: Deploy to GitHub Pages
+
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
 
-  workflow_dispatch:
 
 jobs:
-  deployment:
+  build:
     runs-on: ubuntu-latest
+
 
     strategy:
       matrix:
         node-version: [16.x]
 
+
     steps:
-      - uses: actions/checkout@v2
-
-      - name: Install Dependancies
-        run: sudo apt-get install musl-dev && sudo ln -s /usr/lib/x86_64-linux-musl/libc.so /lib/libc.musl-x86_64.so.1
-
+      - name: Get files
+        uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-          
-      - name: Use NPM 7
-        run: npm i -g npm@latest
-
-      - name: Cache dependencies
-        uses: actions/cache@v2
-        with:
-          path: ~/.npm
-          key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.OS }}-node-
-            ${{ runner.OS }}-
-      - name: Build
-        run: |
-          npm ci --legacy-peer-deps
-          npm run build
-          npm run export
+      - name: Install packages
+        run: npm ci
+      - name: Build project
+        run: npm run build
+      - name: Export static files
+        run: npm run export
+      - name: Add .nojekyll file
+        run: touch ./out/.nojekyll
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+        uses: JamesIves/github-pages-deploy-action@4.1.1
         with:
-          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-          publish_dir: ./out
+          branch: gh-pages
+          folder: out
