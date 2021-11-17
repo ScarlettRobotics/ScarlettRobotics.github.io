@@ -1,0 +1,34 @@
+.centerContainer {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.centerContainer * {
+    width: fit-content;
+    height: fit-content;
+}
+
+.table {
+    width: 100vw;
+}
+
+.tableRow {
+    background: rgb(53, 53, 53);
+    width: 100vw;
+}
+
+.tableRow>td {
+    padding: 10px;
+}
+
+.linkTitle {
+    width: 25vw;
+    text-align: right;
+    color: white;
+}
+
+.linkValue {
+    width: 75vw;
+}

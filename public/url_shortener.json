@@ -1,0 +1,6 @@
+{
+    "slack": "https://scarlettrobotics.slack.com/",
+    "field": "https://firstinspiresst01.blob.core.windows.net/first-forward-ftc/remote-field-requirements.pdf",
+    "manual1": "https://www.firstinspires.org/sites/default/files/uploads/resource_library/ftc/game-manual-part-1-remote-events.pdf",
+    "manual2": "https://www.firstinspires.org/sites/default/files/uploads/resource_library/ftc/game-manual-part-2-remote.pdf"
+}
