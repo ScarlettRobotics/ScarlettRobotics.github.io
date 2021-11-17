@@ -19,7 +19,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Install Dependancies
-        run: apt-get install musl-dev && ln -s /usr/lib/x86_64-linux-musl/libc.so /lib/libc.musl-x86_64.so.1
+        run: sudo apt-get install musl-dev && sudo ln -s /usr/lib/x86_64-linux-musl/libc.so /lib/libc.musl-x86_64.so.1
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
