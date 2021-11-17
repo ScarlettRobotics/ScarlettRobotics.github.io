@@ -15,7 +15,7 @@ const QuickLinkHome: NextPage = () => {
         <div className={style.centerContainer}>
             <Title />
             <h1>Quick Links</h1>
-            <p>Edit the links on <a href="https://github.com">GitHub</a></p>
+            <p>Edit the links on <a href="https://github.com/ScarlettRobotics/ScarlettRobotics.github.io/edit/main/public/url_shortener.json">GitHub</a></p>
 
             <table>
                 <tbody>
