@@ -78,7 +78,7 @@ const About = () => {
                 <p>The actual robot will follow several key specifications set for the competition but
                     generally will be a wheeled vehicle capable of undertaking several tasks. These tasks might
                     include picking up a ball and shooting them into baskets or other game-type skills.</p>
-                <iframe>Your browser doesn't support embedded videos.</iframe>
+                <iframe>Your browser doesn&apos;t support embedded videos.</iframe>
             </main>
         </>
     )
