@@ -1,16 +1,44 @@
 .header {
+    position: sticky;
     display: flex;
 
-    width: 100vw;
+    top: 0px;
+    width: 100%;
     height: fit-content;
-    background: rgb(48, 48, 48);
+
+    background: rgb(48, 48, 48, 0.90);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
 }
 
 .title {
-    color: white;
-    background-color: rgb(255, 74, 74);
+    color: var(--text-color);
+    background-color: var(--foreground-color);
     margin: 0px;
     padding: 10px;
     width: fit-content;
     height: fit-content;
+}
+
+.links {
+    display: flex;
+    margin-left: auto;
+    align-content: center;
+    flex-direction: row;
+    justify-content: right;
+    flex-grow: 1;
+}
+
+.links>a {
+    display: block;
+    align-self: center;
+    padding: 10px;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: linear border 0.1s;
+}
+
+.links>a:hover {
+    color: var(--text-color-highlight);
+    border-bottom: 3px solid rgb(255, 74, 74);
 }

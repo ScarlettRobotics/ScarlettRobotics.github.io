@@ -14,31 +14,30 @@ const QuickLinkHome: NextPage = () => {
         <Head>
             <title>Scarlett Robotics | Quick Links</title>
         </Head>
-        <div className={style.centerContainer}>
-            <Title />
+        <Header />
+        <header className={style.centerContainer}>
             <h1>Quick Links</h1>
             <p>Edit the links on <a href="https://github.com/ScarlettRobotics/ScarlettRobotics.github.io/edit/main/public/url_shortener.json">GitHub</a></p>
-
-            <table>
-                <tbody>
-                {
-                    //@ts-ignore - the actual data is in the default key, but typscript doesn't seem to realize it exists
-                    Object.keys(links["default"]).map((key, index) =>
-                        
-                        <tr key={key} className={style.tableRow}>
-                            <td className={style.linkTitle}>{key}</td>
-                            <td className={style.linkValue}>
-                                <Link href={`/go/${key}`}>
-                                    { // @ts-ignore
-                                    links[key] }
-                                </Link>
-                            </td>
-                        </tr>
-                    )
-                }
-                </tbody>
-            </table>
-        </div>
+        </header>
+        <table>
+            <tbody>
+            {
+                //@ts-ignore - the actual data is in the default key, but typscript doesn't seem to realize it exists
+                Object.keys(links["default"]).map((key, index) =>
+                    
+                    <tr key={key} className={style.tableRow}>
+                        <td className={style.linkTitle}>{key}</td>
+                        <td className={style.linkValue}>
+                            <Link href={`/go/${key}`}>
+                                { // @ts-ignore
+                                links[key] }
+                            </Link>
+                        </td>
+                    </tr>
+                )
+            }
+            </tbody>
+        </table>
     </>
   )
 }

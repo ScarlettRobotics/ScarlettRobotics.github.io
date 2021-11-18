@@ -1,6 +1,13 @@
+html {
+  --foreground-color: rgb(255, 74, 74);;
+  --text-color: white;
+  --text-color-highlight: rgb(202, 202, 202);
+}
+
 html,
 body {
   padding: 0;
+  background: #323232;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
@@ -9,8 +16,32 @@ body {
 a {
   color: #44bbff;
   text-decoration: none;
+  transition: 0.2s linear;
+}
+
+a:hover {
+  color: #6bc9ff;
+  border-bottom: 1px solid white;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  color: var(--foreground-color);
+}
+
+h1,h2,h3,h4,h5,h6,p,ol,ul {
+  margin: 20px;
+}
+
+p,li {
+  color: var(--text-color);
 }
 
 * {
   box-sizing: border-box;
+}
+
+iframe {
+  margin: 50px;
+  width: calc(100% - 100px);
+  aspect-ratio: 16/9;
 }

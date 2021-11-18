@@ -1,6 +1,5 @@
 import { NextPage } from 'next';
 import Head from 'next/dist/shared/lib/head';
-import { useRouter } from 'next/router'
 import React from 'react';
 import Title from '../../components/Title';
 import * as links from "../../public/url_shortener.json"

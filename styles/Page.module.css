@@ -1,0 +1,43 @@
+@keyframes page-text-animation {
+    0% {
+        transform: translate(0, -50px);
+        opacity: 0;
+    }
+    75% {
+        opacity: 5%;
+    }
+    100% {
+        transform: translate(0, 0);
+        opacity: 100%;
+    }
+}
+
+.pageTitleHeader {
+    position: absolute;
+    display: flex;
+
+    top: 0px;
+    width: 100%;
+    height: 500px;
+
+    justify-content: center;
+    align-content: center;
+
+    background: #eee;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.pageTitleHeader * {
+    align-self: center;
+    color: var(--text-color);
+    font-size: 4em;
+}
+
+.spacer {
+    height: 450px;
+}
+
+.mainContent h1,.mainContent p,.mainContent ol,.mainContent ul {
+    animation: page-text-animation .5s ease-out 0s 1;
+}
