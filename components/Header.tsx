@@ -10,7 +10,6 @@ const Header = () => {
                 <Title />
                 <div className={styles.links}>
                     <Link href="/">Home</Link>
-                    <Link href="/about">About</Link>
                     <Link href="/sponsors">Sponsors</Link>
                     <Link href="/go">Quick Links</Link>
                 </div>

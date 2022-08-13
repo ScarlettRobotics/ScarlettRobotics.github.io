@@ -38,6 +38,9 @@ const QuickLinkHome: NextPage = () => {
             }
             </tbody>
         </table>
+        <div className={style.centerContainer}>
+            <p>Please note: changes made on github may take up to five minutes to update after the pull request is accepted due to caching.</p>
+        </div>
     </>
   )
 }
