@@ -32,7 +32,7 @@ export async function getStaticProps(context:any) {
     // @ts-ignore
     const target = links[targetName];
     return { props: { targetName: targetName, target: target } };
-  }
+}
 
 export async function getStaticPaths() {
     // @ts-ignore
