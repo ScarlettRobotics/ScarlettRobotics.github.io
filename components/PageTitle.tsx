@@ -1,3 +1,4 @@
+import { StaticImageData } from "next/image";
 import styles from "../styles/Page.module.css"
 
 const PageTitle = (props: {title:string, background:StaticImageData}) => {
